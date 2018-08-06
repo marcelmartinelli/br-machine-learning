@@ -1,0 +1,66 @@
+### Gaussian Naive Bayes (GaussianNB)
+
+Utilizado para classificar mensagens de email em spam ou não spam, muito utilizado para processamento de linguagem natural.
+
+O modelo se baseia na probabilidade condicional, é facil de implementar e muito rapido para treinar. O modelo performa bem e consegue trazer bom tempo de resposta, pois o cálculo matemático não é muito custoso.
+
+O modelo considera que as features são independentes e isso pode prejudicar a classificação.
+
+Não acredito que seja bom candidato para o problema.
+
+ . Este algoritmo traz grandes benefícios, tais como ser fácil de implementar e muito rápido para treinar. Nós estudaremos uma de suas aplicações muito interessantes: Processamento de linguagem natural. Nas aulas e no laboratório o usaremos para analisar textos em e-mails e discursos.
+
+### Decision Trees (Árvores de decisão) ###
+
+Utilizado para problemas de classificação com features discretas e contínuas. Utilizado, por exemplo, para situações onde temos o histórico de compras dos usuários de um e-commerce e queremos predizer se esses usuários voltariam a comprar no site.
+
+Tem boa performance para situações de features discretas ou contínuas e trabalha bem nas situações em que as features possuem relação entre elas.
+
+Tem que se tomar cuidado para que o modelo não aprenda muito com os dados e acarrete uma situação de overfiting. Nessas situações os modelos não performan bem.
+
+Este é um bom candidato para nosso projeto, pois temos features discretas e contínuas, um bom conjunto de dados para treino e as features tem relação. Como um modelo Ensemble torna o modelo mais simples forte, preferi utilizar o Random Forest que combinar decisions tree
+
+Referência:
+http://scikit-learn.org/stable/modules/tree.html
+
+
+### Ensemble Methods (Random Forest) ###
+
+Combina modelos mais simples e forma um modelo mais forte. Utilizado, por exemplo, para predição de recomendações de comprar num site de e-commerce ou detecção de fraudes.
+
+Tem boa performance para situações em que as features são dependentes uma das outras. Um possibilidade é relacionar várias árvores de decisão para tornar o modelo mais poderoso. É fácil implementar e também faz uma boa validação do relacionamento entre as  features.
+
+Pode ser o processanmento demorado por causa do tamanho dos datasets e pela natureza do algoritmo que testa muitas possibilidades.
+
+Este é um bom candidato para nosso projeto, pois temos features discretas e contínuas, um bom conjunto de dados para treino e as features tem relação.
+
+Referência:
+https://www.datacamp.com/community/tutorials/random-forests-classifier-python
+
+### SVM ###
+
+Muito utilizado na área médica para predizer quando uma pessoa pode ou não ter uma doença grave.
+
+Modelo de classficação muito forte, possui uma alta acurácia, geralmente para os problemas de classificação, quando comparado a outros modelos como logistic regression e decision trees.
+
+Não tem boa performance para datasets muito grandes.
+
+Este é um bom candidato para nosso projeto, pois temos features discretas e contínuas, um bom conjunto de dados para treino e as features tem relação.
+
+http://www.ppgia.pucpr.br/~alekoe/AM/2010/6-SVM-RecPad.pdf
+https://www.datacamp.com/community/tutorials/svm-classification-scikit-learn-python#prosandcons
+
+### Logistic regression ###
+
+Pode ser utilizado para análise de risco de crédito.
+
+Trata-se de um modelo de regressão para variáveis dependentes ou de resposta binomialmente distribuídas. É útil para modelar a probabilidade de um evento ocorrer como função de outros fatores. É um modelo linear generalizado que usa como função de ligação a função logit.
+
+Esse modelo apresenta problemas quando a preparação das variáveis demanda muito tempo. No caso de muitas variáveis, o analista deve fazer uma pré-seleção das mais importantes, baseando-se em análises separadas. Alguns modelos resultantes são de difícil implementação.
+
+Este é um bom candidato para nosso projeto, pois temos features discretas e contínuas, um bom conjunto de dados para treino e as features tem relação.
+
+Referência:
+https://pt.wikipedia.org/wiki/Regress%C3%A3o_log%C3%ADstica
+http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html
+https://edisciplinas.usp.br/pluginfile.php/3769787/mod_resource/content/1/09_RegressaoLogistica.pdf
