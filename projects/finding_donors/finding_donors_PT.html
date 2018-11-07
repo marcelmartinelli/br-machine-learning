@@ -12883,10 +12883,13 @@ Analise o gráfico do canto inferior esquerdo da célula acima(a visualização 
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Resposta: </strong></p>
 <p>O modelo GradientBoostingClassifier permitir juntar modelos fracos de aprendizagem e máquina e formar um modelo forte, capaz de fazer predições com boa assertividade e resolver problemas de regressão e classificação. Basicamente o modelo seleciona uma árvore de decisão randomicamente e aplica essa árvore nos dados de treino, verifica os erros com essa árvore apenas e no segundo passo compõe uma nova árvore de decisão considerando os erros do primeiro passo, o modelo aplica esses passos várias vezes até diminuir o erro de classificação ao mínimo possível.</p>
-<p>Utilizar como referencia:
+<p>Para ilustrar o funcionamento do modelo, vamos supor que queremos classificar todas as pessoas na cidade de São Francisco que tem altura maior que 5’7″, pesam menos que 190 lbs, e tem idade entre 28 e 41. Considerando que esse problema é complexo para apenas uma pessoa predizer as 3 coisas, podemos utilizar 3 pessoas diferentes que são bons em cada uma das predições, ao reunirmos essas pessoas diferentes podemos chegar a uma boa acurácia utilizando o que cada uma delas tem de melhor. Essa é a analogia que podemos fazer ao modelo GradientBoostingClassifier, ele reune modelos que são fracos para fazer uma predição complexa, mas são bons para uma predição mais simples. A junção desses modelos forma um modelo mais forte e capaz de associar muitas features.</p>
+<p>O GradientBoostingClassifier é adaptativo no sentido de que os modelos fracos aplicados sequencialmente são ajustados em favor dos casos classificados erroneamente pelos classificadores anteriores. Quando coletamos o conjunto de modelos fracos, damos pesos iguais a todos eles. Mas em cada rodada, os pesos dos exemplos classificados incorretamente são aumentados, de modo que o modelo fraco é forçado a se concentrar nos exemplos difíceis no conjunto de treinamento. Se você considerar nosso exemplo anterior de classificar pessoas em São Francisco, é como dizer que você confia nas três pessoas igualmente. Mas a cada dia que passa, você percebe que a segunda pessoa é mais precisa do que as outras duas. Então você dá mais peso aos palpites e menos peso aos outros dois. Desta forma, a precisão geral aumentará. Basicamente, o trabalho fraco do aprendiz é encontrar uma hipótese fraca que seja apropriada para a distribuição atual dos dados.</p>
+<p>Referência:
 <a href="https://mineracaodedados.wordpress.com/tag/gradient-boosting-machine/">https://mineracaodedados.wordpress.com/tag/gradient-boosting-machine/</a>
 <a href="http://blog.kaggle.com/2017/01/23/a-kaggle-master-explains-gradient-boosting/">http://blog.kaggle.com/2017/01/23/a-kaggle-master-explains-gradient-boosting/</a>
-<a href="https://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/">https://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/</a></p>
+<a href="https://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/">https://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/</a>
+<a href="https://prateekvjoshi.com/2014/05/05/what-is-adaboost/">https://prateekvjoshi.com/2014/05/05/what-is-adaboost/</a></p>
 
 </div>
 </div>
@@ -13263,6 +13266,8 @@ F-score on testing data: 0.7048
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Resposta:</strong></p>
 <p>A acurácia ficou 2.35% menor no modelo aplicado em apenas 5 variáveis e o f-score ficou 4.7% menor no modelo aplicado em apenas 5 variáveis. Se o tempo de treinamento inviabilizasse a aplicação do modelo com todas as variáveis, com certeza eu aplicarei para um número reduzido de features. Para esse projeto não foi essa a situação, pois mesmo no dataset completo o tempo de resposta foi bastante satisfatório. Acredito que dependendo da situação aplicar o modelo num conjunto menor de features seja positivo, mas a diferença na assertividade do modelo é considerável, por isso a decisão depende muito do caso prático onde se quer aplicar o modelo.</p>
+<p>Em relação aos valores de Acurácia e F-score antes da otimização de parâmetros, o modelo aplicado utilizando apenas 5 features foi 1,65% pior comparando a acurácia e 3,47% pior comparando o F-score.</p>
+<p>Quando consideramos o naive predictor, tanto o modelo sem otimização, como o modelo otimizado e, ainda, o modelo aplicado em apenas 5 features apresentarem Acurácia e F-Score muito superiores ao naive predictor, pois a pior acurácia foi de 84,65%, a do naive predictor é de 24,78%. Quando comparamos o F-Score, o pior F-score nos modelos aplicados foi de 70,48% enquanto que o do naive predictor era de 29,17%.</p>
 
 </div>
 </div>
